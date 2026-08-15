@@ -8,9 +8,9 @@ load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Fast/cheap model for classification-type calls
-FAST_MODEL = "llama-3.1-8b-instant"
+FAST_MODEL = "openai/gpt-oss-20b"
 # Larger model for judging and rewriting — check console.groq.com for current available models
-STRONG_MODEL = "llama-3.3-70b-versatile"
+STRONG_MODEL = "openai/gpt-oss-120b"
 
 
 async def call_groq(prompt: str, model: str = STRONG_MODEL,

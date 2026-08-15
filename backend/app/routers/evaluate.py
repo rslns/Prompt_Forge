@@ -4,8 +4,8 @@ from app.database import get_db
 from app.schemas import PromptCreate, EvaluationResponse, DimensionScore
 from app.services.heuristics import run_heuristics
 from app.services.judge import classify_task_type, judge_all_dimensions
+from app.services.llm_client import STRONG_MODEL
 from app.models import Prompt, Evaluation
-
 router = APIRouter(prefix="/evaluate", tags=["evaluate"])
 
 
@@ -39,7 +39,7 @@ async def evaluate_prompt(payload: PromptCreate, db: Session = Depends(get_db)):
             score=d["score"],
             reasoning=d["reasoning"],
             missing_elements=d["missing_elements"],
-            model_used="llama-3.3-70b-versatile",
+            model_used=STRONG_MODEL,
         )
         db.add(eval_record)
         if d["score"] is not None:

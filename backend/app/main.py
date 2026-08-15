@@ -11,7 +11,7 @@ app = FastAPI(title="Prompt Evaluator + Improver API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten this to your Vercel URL after deployment
+    allow_origins=["https://prompt-forging.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
