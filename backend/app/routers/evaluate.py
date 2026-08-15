@@ -1,10 +1,10 @@
+from app.services.llm_client import STRONG_MODEL
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.schemas import PromptCreate, EvaluationResponse, DimensionScore
 from app.services.heuristics import run_heuristics
 from app.services.judge import classify_task_type, judge_all_dimensions
-from app.services.llm_client import STRONG_MODEL
 from app.models import Prompt, Evaluation
 router = APIRouter(prefix="/evaluate", tags=["evaluate"])
 
